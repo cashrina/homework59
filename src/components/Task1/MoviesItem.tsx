@@ -1,0 +1,37 @@
+import React, {useState} from 'react';
+import {Movie} from "../../types.ts";
+
+interface MoviesProps {
+    moviesItem: Movie;
+    onRemove: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const MoviesItem: React.FC<MoviesProps> = React.memo(({moviesItem,onRemove}) => {
+    const[MovieMutation, setMovieMutation] = useState<Movie>({
+        id: '',
+        title: moviesItem.title,
+    });
+    const ChangeMovie = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target)
+        setMovieMutation((prevState) => ({
+            ...prevState,
+            title: event.target.value
+        }));
+    };
+
+
+    return (
+        <div className="d-flex align-items-center">
+            <input className="card mb-3 me-2 mt-3 border-warning shadow-lg card-title py-1 px-3"
+                   value={`${MovieMutation.title} `}
+                   onChange={(event) => ChangeMovie(event)}/>
+            <button className="btn btn-outline-danger shadow-lg card-title text-danger ms-3" onClick={onRemove}>X</button>
+        </div>
+
+    )
+}, (prevProps, nextProps) => {
+
+    return nextProps.moviesItem !== prevProps.moviesItem || nextProps.onRemove !== prevProps.onRemove;
+});
+
+export default MoviesItem;

@@ -16,7 +16,7 @@ const Task1 = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="ms-4 mt-2 text-danger">
                 Task 1
                 <Task1Form onSubmit={addMovie} />
             </div>

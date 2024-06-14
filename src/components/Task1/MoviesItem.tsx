@@ -12,7 +12,6 @@ const MoviesItem: React.FC<MoviesProps> = ({moviesItem,onRemove}) => {
         title: moviesItem.title,
     });
     const ChangeMovie = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target)
         setMovieMutation((prevState) => ({
             ...prevState,
             title: event.target.value
@@ -20,7 +19,7 @@ const MoviesItem: React.FC<MoviesProps> = ({moviesItem,onRemove}) => {
     };
 
     return (
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center ms-3">
             <input className="card mb-3 me-2 mt-3 border-warning shadow-lg card-title py-1 px-3"
                    value={`${MovieMutation.title} `}
                    onChange={(event) => ChangeMovie(event)}/>

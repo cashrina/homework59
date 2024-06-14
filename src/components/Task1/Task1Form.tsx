@@ -1,13 +1,12 @@
 import React, {FormEvent, useState} from "react";
-import {Movie, MovieMutation} from "../../types.ts";
+import {Movie} from "../../types.ts";
 
 interface Props {
     onSubmit: (movie: Movie) => void;
 }
 const Task1Form: React.FC<Props> = ({onSubmit}) => {
-    const[MovieMutation, setMovieMutation] = useState<MovieMutation>({
+    const[MovieMutation, setMovieMutation] = useState<Movie>({
         id: '',
-        counter: 0,
         title: '',
     });
 
@@ -28,7 +27,6 @@ const Task1Form: React.FC<Props> = ({onSubmit}) => {
 
         setMovieMutation({
             id: '',
-            counter: 0,
             title: '',
         });
     };
@@ -39,6 +37,7 @@ const Task1Form: React.FC<Props> = ({onSubmit}) => {
                 <div className="form-group mb-2 me-3">
                     <label className="sr-only"></label>
                     <input
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Movie"
@@ -48,7 +47,7 @@ const Task1Form: React.FC<Props> = ({onSubmit}) => {
                         onChange={changeMovies}
                         value={MovieMutation.title}/>
                 </div>
-                <button type="submit" className="btn btn-primary mb-2 my-4">Add</button>
+                <button type="submit" className="btn btn-outline-warning mb-2 my-4">Add</button>
             </div>
         </form>
     );

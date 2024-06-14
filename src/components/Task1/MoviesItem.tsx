@@ -6,7 +6,7 @@ interface MoviesProps {
     onRemove: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const MoviesItem: React.FC<MoviesProps> = React.memo(({moviesItem,onRemove}) => {
+const MoviesItem: React.FC<MoviesProps> = ({moviesItem,onRemove}) => {
     const[MovieMutation, setMovieMutation] = useState<Movie>({
         id: '',
         title: moviesItem.title,
@@ -19,7 +19,6 @@ const MoviesItem: React.FC<MoviesProps> = React.memo(({moviesItem,onRemove}) => 
         }));
     };
 
-
     return (
         <div className="d-flex align-items-center">
             <input className="card mb-3 me-2 mt-3 border-warning shadow-lg card-title py-1 px-3"
@@ -29,9 +28,6 @@ const MoviesItem: React.FC<MoviesProps> = React.memo(({moviesItem,onRemove}) => 
         </div>
 
     )
-}, (prevProps, nextProps) => {
-
-    return nextProps.moviesItem !== prevProps.moviesItem || nextProps.onRemove !== prevProps.onRemove;
-});
+};
 
 export default MoviesItem;

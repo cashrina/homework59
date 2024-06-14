@@ -5,12 +5,12 @@ import Task2 from "./components/Task2/Task2.tsx";
 const App = () => {
 
   return (
-    <div className="d-flex align-items-center justify-content-center">
-        <div className="me-5">
+    <div className="d-flex justify-content-center">
+        <div className="me-5 col-4 border">
             <Task1 />
         </div>
 
-        <div className="ms-5 col-6">
+        <div className="ms-5 col-4 mb-auto border">
             <Task2/>
         </div>
     </div>
